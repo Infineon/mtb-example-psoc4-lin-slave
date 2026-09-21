@@ -6,14 +6,12 @@ PSoC&trade; 4 responds to an external LIN Master's commands to:
 2. Report the current LED color status 
 
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzMxMjIiLCJTcGVjIE51bWJlciI6IjAwMi0zMzEyMiIsIkRvYyBUaXRsZSI6IlBTb0MmdHJhZGU7IDQ6IEJhc2ljIExJTiBzbGF2ZSBleGFtcGxlIGluIE1UQiIsInJpZCI6Imtpa3UiLCJEb2MgdmVyc2lvbiI6IjIuMC4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IkFVVE8iLCJEb2MgRmFtaWx5IjoiQVVUTyBQU09DIn0=)
+[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzMxMjIiLCJTcGVjIE51bWJlciI6IjAwMi0zMzEyMiIsIkRvYyBUaXRsZSI6IlBTb0MmdHJhZGU7IDQ6IEJhc2ljIExJTiBzbGF2ZSBleGFtcGxlIGluIE1UQiIsInJpZCI6Imtpc2hvcmUuc3VrdW1hckBpbmZpbmVvbi5jb20iLCJEb2MgdmVyc2lvbiI6IjIuMS4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IkFVVE8iLCJEb2MgRmFtaWx5IjoiQVVUTyBQU09DIn0=)
 
 ## Requirements
 
-- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
-
-  **Note:** This code example version requires ModusToolbox&trade; software version 3.0 or later and is not backward compatible with v2.4 or older versions.
-
+- [ModusToolbox&trade; software](https://www.infineon.com/modustoolbox) v3.8 or later (tested with v3.9)
+- [ModusToolbox&trade; LIN Configurator](https://softwaretools.infineon.com/tools/com.ifx.tb.tool.linconfigurator) for [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.9 or later.
 - Board support package (BSP) minimum required version: 3.0.0
 - Programming language: C
 - Associated parts: [PSoC&trade; 4100S](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-4-32-bit-arm-cortex-m0-mcu/)
@@ -64,7 +62,7 @@ Follow these instructions to set up the hardware:
 
 **Note:** This is to provide a 12 V supply to the Silicon Engines LIN-USB analyzer; if any other analyzer is being used, then follow the instructions for power supply requirements and short the jumper only if it requires a 12 V supply.
 
-3.	The baseboard (PSoC&trade; 4 kit) can be powered using USB or it can be powered from the Shield kit by selecting jumper J20 appropriately as shown in **Table 2**. See the [CY8CKIT-026 user guide](http://www.infineon.com/CY8CKIT-026) for more details.
+3.	The baseboard (PSoC&trade; 4 kit) can be powered using USB or it can be powered from the Shield kit by selecting jumper J20 appropriately as shown in **Table 2**. See the [CY8CKIT-026 user guide](https://www.infineon.com/CY8CKIT-026) for more details.
 
 **Table 2. Powering options with jumper (J20)**
 
@@ -252,6 +250,8 @@ You can debug the example to step through the code. In the IDE, use the **\<Appl
 
 ## Design and implementation
 
+This example uses the LIN Configurator and Device Configurator. The LIN slave initialization is configured using the LIN Configurator, while its hardware configuration, such as GPIO and clock assignments, is done using the Device Configurator.
+
 The following screenshots show the parameter settings for the LIN configurator. Only the parameters that vary from their default values are shown.
 
 **Figure 6** shows the Frames tab settings for the LIN configurator. Use this tab to add a new frame or delete an existing frame from the LIN slave. Click the ‘Add’ button to add a new frame. For this example, three frames named “InFrame”, “OutFrame”, and “ErrorSignalFrame” are used as shown in **Figure 6**.
@@ -313,6 +313,7 @@ Document title: *CE233122* - *PSoC&trade; 4: Basic LIN slave example in MTB*
 | ------- | --------------------- |
 | 1.0.0   | New code example      |
 | 2.0.0   | Major update to support ModusToolbox&trade; v3.0. <br> This version is not backward compatible with the previous versions of ModusToolbox&trade; software.
+| 2.1.0   | Updated to support ModusToolbox&trade; v3.9.     |
 ------
 
 ---------------------------------------------------------

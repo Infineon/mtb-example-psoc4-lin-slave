@@ -192,4 +192,19 @@ endif
 
 $(info Tools Directory: $(CY_TOOLS_DIR))
 
+################################################################################
+# LIN Configurator check
+################################################################################
+# Stop the build early if the LIN Configurator tool is not installed, instead
+# of failing deep inside the compiler with a missing mtbcfg_lin.h error.
+
+CY_LIN_CFG_HOMES=$(CY_WIN_HOME) $(HOME)
+CY_LIN_CONFIGURATOR_DIRS=$(strip $(wildcard $(CY_TOOLS_DIR)/lin-configurator) \
+    $(wildcard $(addsuffix /ModusToolbox/packs/*/tools/lin-configurator,$(CY_LIN_CFG_HOMES)) \
+    $(addsuffix /Infineon/Tools/*/tools/lin-configurator,$(CY_LIN_CFG_HOMES))))
+
+ifeq ($(CY_LIN_CONFIGURATOR_DIRS),)
+$(error LIN Configurator tool not found. Install it from ModusToolbox Setup.)
+endif
+
 include $(CY_TOOLS_DIR)/make/start.mk
